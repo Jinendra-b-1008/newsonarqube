@@ -10,7 +10,7 @@ pipeline{
 	          sh 'mvn clean deploy'
 		}
 	 }
-		stage("sonarqube analysis"){
+		stage("SonarQube analysis"){
 		    environment{
 			scannerHome = tool 'jinu-sonar-scanner'
 		    }
