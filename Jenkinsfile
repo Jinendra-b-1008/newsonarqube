@@ -6,16 +6,22 @@ pipeline{
 	stages{
 	      stage("build"){	
 	        steps {
-	          sh 'mvn clean deploy'
+	          sh 'mvn clean deploy -Dmaven.test.skip=true'
 	         }
 	       }
+	  	stage("test"){
+                steps {
+                  sh 'mvn surefire-report:report'
+                 }
+               }
+
 	       stage("SonarQube analysis"){ 
 		    environment{
 			scannerHome = tool 'jinu-sonar-scanner'
 		    }
 		    steps {
 			withSonarQubeEnv('jinu-sonarqube-server'){
-				sh "${scannerHome}/bin/sonar-scanner"
+			i	sh "${scannerHome}/bin/sonar-scanner"
 			  } 
 			}
 		}
