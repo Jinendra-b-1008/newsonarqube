@@ -25,7 +25,7 @@ pipeline{
 		    }
 		    steps {
 			withSonarQubeEnv('jinu-sonarqube-server'){
-			i	sh "${scannerHome}/bin/sonar-scanner"
+				sh "${scannerHome}/bin/sonar-scanner"
 			  } 
 			}
 		}
