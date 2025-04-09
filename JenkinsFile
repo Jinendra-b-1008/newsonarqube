@@ -1,16 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        BRANCh = 'master'
-    }
+     
 
     stages {
-        stage('Git Checkout') {
-            steps {
-                git branch: "${BRANCh}", url: 'https://github.com/Jinendra-b-1008/war-web-project.git'
-            }
-        }
+        
 
         stage('Build') {
             steps {
